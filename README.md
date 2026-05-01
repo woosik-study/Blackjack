@@ -1,6 +1,27 @@
 # Assignment 3: Blackjack
 The base game engine uses code from [here](https://github.com/ServePeak/Blackjack-Python/blob/master/blackjack.py). 
 
+## My Implementation
+Implemented the following algorithms in `ai.py`:
+
+### Monte Carlo Policy Evaluation
+- Collects full trajectories and computes discounted returns backwards
+- Updates all visited states inside the reversed loop (not just the last state)
+
+### Temporal Difference (TD) Policy Evaluation
+- Online update after each transition using bootstrapping
+- Uses learning rate `alpha(n) = 10 / (9 + n)` and discount factor γ = 0.95
+
+### Q-Learning
+- Epsilon-greedy exploration with ε = 0.4
+- Terminal states `(WIN/LOSE)` are also updated inside the loop
+- AutoPlay uses learned Q values (~41% win rate)
+
+### Test Results
+++++ PASSED MC with 0 wrong values
+++++ PASSED TD with 0 wrong values
+++++ PASSED Q-Learning with 0 wrong values
+
 ## The Game
 The game more or less follows the standard Blackjack rules. Read the **Blackjack Rules** section below and game engine code to see minor simplification. You do not need to really understand the rules of the game to do the learning right.
 
